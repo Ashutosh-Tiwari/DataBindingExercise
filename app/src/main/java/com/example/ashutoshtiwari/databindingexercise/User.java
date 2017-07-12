@@ -2,18 +2,22 @@ package com.example.ashutoshtiwari.databindingexercise;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
+import android.databinding.BindingAdapter;
+import android.databinding.InverseBindingAdapter;
+import android.widget.TextView;
 
 /**
  * Created by Ashutosh.tiwari on 12/07/17.
+ * Observable Model Class
  */
 
 public class User extends BaseObservable {
     private String firstname;
     private String lastname;
-    private String age;
+    private int age;
     private String gender;
 
-    public User(String firstname, String lastname, String age, String gender) {
+    User(String firstname, String lastname, int age, String gender) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.age = age;
@@ -31,7 +35,7 @@ public class User extends BaseObservable {
     }
 
     @Bindable
-    public String getAge() {
+    public int getAge() {
         return age;
     }
 
@@ -50,7 +54,7 @@ public class User extends BaseObservable {
         notifyPropertyChanged(BR.lastname);
     }
 
-    public void setAge(String age) {
+    public void setAge(int age) {
         this.age = age;
         notifyPropertyChanged(BR.age);
     }
@@ -58,5 +62,15 @@ public class User extends BaseObservable {
     public void setGender(String gender) {
         this.gender = gender;
         notifyPropertyChanged(BR.gender);
+    }
+
+    @BindingAdapter("android:text")
+    public static void setText(TextView view, int value) {
+        view.setText(Integer.toString(value));
+    }
+
+    @InverseBindingAdapter(attribute = "android:text")
+    public static int getText(TextView view) {
+        return Integer.parseInt(view.getText().toString());
     }
 }
