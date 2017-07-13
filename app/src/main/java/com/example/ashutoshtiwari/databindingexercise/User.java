@@ -2,9 +2,6 @@ package com.example.ashutoshtiwari.databindingexercise;
 
 import android.databinding.BaseObservable;
 import android.databinding.Bindable;
-import android.databinding.BindingAdapter;
-import android.databinding.InverseBindingAdapter;
-import android.widget.TextView;
 
 /**
  * Created by Ashutosh.tiwari on 12/07/17.
@@ -14,10 +11,10 @@ import android.widget.TextView;
 public class User extends BaseObservable {
     private String firstname;
     private String lastname;
-    private int age;
+    private String age;
     private String gender;
 
-    User(String firstname, String lastname, int age, String gender) {
+    User(String firstname, String lastname, String age, String gender) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.age = age;
@@ -35,7 +32,7 @@ public class User extends BaseObservable {
     }
 
     @Bindable
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
@@ -46,31 +43,33 @@ public class User extends BaseObservable {
 
     public void setFirstname(String firstname) {
         this.firstname = firstname;
-        notifyPropertyChanged(BR.firstname);
+        notifyPropertyChanged(com.example.ashutoshtiwari.databindingexercise.BR.firstname);
     }
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
-        notifyPropertyChanged(BR.lastname);
+        notifyPropertyChanged(com.example.ashutoshtiwari.databindingexercise.BR.lastname);
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
-        notifyPropertyChanged(BR.age);
+        notifyPropertyChanged(com.example.ashutoshtiwari.databindingexercise.BR.age);
     }
 
     public void setGender(String gender) {
         this.gender = gender;
-        notifyPropertyChanged(BR.gender);
+        notifyPropertyChanged(com.example.ashutoshtiwari.databindingexercise.BR.gender);
     }
 
-    @BindingAdapter("android:text")
+    /*@BindingAdapter("android:text")
     public static void setText(TextView view, int value) {
-        view.setText(Integer.toString(value));
+        if (view.getText() != String.valueOf(value)) {
+            view.setText(String.valueOf(value));
+        }
     }
 
     @InverseBindingAdapter(attribute = "android:text")
     public static int getText(TextView view) {
         return Integer.parseInt(view.getText().toString());
-    }
+    }*/
 }

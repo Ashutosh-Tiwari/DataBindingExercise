@@ -8,7 +8,7 @@
 
         <import type="com.example.ashutoshtiwari.databindingexercise.Handler" />
 
-        <import type="android.view.View" />
+        <!--<import type="android.view.View" />-->
 
         <variable
             name="user"
@@ -19,97 +19,150 @@
             type="Handler" />
     </data>
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="@dimen/activity_horizontal_margin"
-        tools:context="com.example.ashutoshtiwari.databindingexercise.MainActivity">
+        android:scrollbars="none">
 
-        <TextView
-            android:id="@+id/textview_firstname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@{user.firstname}"
-            tools:text="First Name" />
-
-        <TextView
-            android:id="@+id/textview_lastname"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textview_firstname"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@{user.lastname}"
-            tools:text="Last Name" />
-
-        <TextView
-            android:id="@+id/textview_age"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textview_lastname"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@{user.age}"
-            tools:text="Age" />
-
-        <EditText
-            android:id="@+id/edittext_firstname"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/textview_age"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:hint="@string/edittext_first_name_hint" />
+            android:padding="@dimen/activity_horizontal_margin"
+            tools:context="com.example.ashutoshtiwari.databindingexercise.MainActivity">
 
-        <EditText
-            android:id="@+id/edittext_lastname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/edittext_firstname"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:hint="@string/edittext_last_name_hint" />
+            <TextView
+                android:id="@+id/textview_firstname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@{user.firstname}"
+                tools:text="First Name" />
 
-        <EditText
-            android:id="@+id/edittext_age"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/edittext_lastname"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:hint="@string/edittext_age_hint"
-            android:text="@={user.age}" />
+            <TextView
+                android:id="@+id/textview_lastname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_firstname"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@{user.lastname}"
+                tools:text="Last Name" />
 
-        <Button
-            android:id="@+id/button_update"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/edittext_age"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@string/button_update" />
+            <TextView
+                android:id="@+id/textview_age"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/textview_lastname"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@{user.age}"
+                tools:text="Age" />
 
-        <Button
-            android:id="@+id/button_next_activity"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/button_update"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@string/button_next_activity" />
+            <TextView
+                android:id="@+id/textview_gender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textview_age"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@{user.gender}"
+                tools:text="Gender" />
 
-        <Button
-            android:id="@+id/button_no_of_clicks"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/button_next_activity"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:onClick="@{(view) -> handler.onClick(view)}"
-            android:tag="0"
-            android:text="@string/button_no_of_clicks" />
-    </RelativeLayout>
+            <EditText
+                android:id="@+id/edittext_firstname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textview_gender"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:hint="@string/edittext_first_name_hint" />
+
+            <EditText
+                android:id="@+id/edittext_lastname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edittext_firstname"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:hint="@string/edittext_last_name_hint" />
+
+            <EditText
+                android:id="@+id/edittext_age"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edittext_lastname"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:hint="@string/edittext_age_hint"
+                android:text="@={user.age}" />
+
+            <TextView
+                android:id="@+id/textview_radio_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/edittext_age"
+                android:layout_centerHorizontal="true"
+                android:text="@string/radio_label" />
+
+            <RadioGroup
+                android:id="@+id/radio_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/textview_radio_label"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/radio_male"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:onClick="@{(view) -> handler.onRadioButtonChecked(view, user)}"
+                    android:tag="Male"
+                    android:text="@string/radio_button_male" />
+
+                <RadioButton
+                    android:id="@+id/radio_female"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="false"
+                    android:onClick="@{(view) -> handler.onRadioButtonChecked(view, user)}"
+                    android:tag="Female"
+                    android:text="@string/radio_button_female" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/button_update"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/radio_group"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@string/button_update" />
+
+            <Button
+                android:id="@+id/button_next_activity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/button_update"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:text="@string/button_next_activity" />
+
+            <Button
+                android:id="@+id/button_no_of_clicks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/button_next_activity"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="@dimen/activity_vertical_margin"
+                android:onClick="@{handler::onButtonClick}"
+                android:tag="0"
+                android:text="@string/button_no_of_clicks" />
+        </RelativeLayout>
+    </ScrollView>
+
 </layout>
 

@@ -6,4 +6,7 @@
     <string name="edittext_last_name_hint">Last Name</string>
     <string name="button_no_of_clicks">No of Clicks</string>
     <string name="edittext_age_hint">Update age automatically</string>
+    <string name="radio_button_female">Female</string>
+    <string name="radio_button_male">Male</string>
+    <string name="radio_label">Select Gender</string>
 </resources>
